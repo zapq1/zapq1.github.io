@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<head>
+<script src="/assets/jquery.js"></script>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Bokor&display=swap" rel="stylesheet">
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Bokor&family=Cedarville+Cursive&display=swap" rel="stylesheet">
+  
+  
+  <title>Carlens</title>
+  <style>
+    body {
+      text-align: center;
+      background: url("https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcS7R_Mk0uukzeoIZVMin-dFzTgUTKQxxCBmlQ&s");
+      background-size: cover;
+      background-position: center;
+      color: red;
+      font-family: bokor;
+    }
+    p {
+      font-size: 43px;
+    }
+    input {
+      border: 0;
+      padding: 10px;
+      font-size: 19px;
+      font-family: Cedarville Cursive;
+      background: rgba(255,255,255,0.7);
+    }
+    input[type="submit"] {
+      background: black;
+      color: green;
+    }
+    img {
+      border-radius: 100px;
+      }
+  </style>
+</head>
+<body>
+  <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSbmFElqHW6xtvXg-PQl4i1kTxrm-giPoBCNw&s">
+  <p>Hi! I'm Carlens, a student at JGS, Say hello!</p>
+  <input placeholder="Your name" id="Name">
+  <input type="email" placeholder="Your email" id="Email">
+  <input type="submit" id="submit">
+  
+  <script type="module">
+    // Import the functions you need from the SDKs you need
+    import { initializeApp } from "https://www.gstatic.com/firebasejs/11.0.2/firebase-app.js";
+    import { getDatabase, ref, set } from "https://www.gstatic.com/firebasejs/11.0.2/firebase-database.js";
+    // TODO: Add SDKs for Firebase products that you want to use
+    // https://firebase.google.com/docs/web/setup#available-libraries
+
+    // Your web app's Firebase configuration
+    const firebaseConfig = {
+      apiKey: "AIzaSyD9pG0PdeQ9RjnX2H4-5TPmO_98hbebpOc",
+      authDomain: "dash-projcet.firebaseapp.com",
+      databaseURL: "https://dash-projcet-default-rtdb.firebaseio.com",
+      projectId: "dash-projcet",
+      storageBucket: "dash-projcet.firebasestorage.app",
+      messagingSenderId: "303026205818",
+      appId: "1:303026205818:web:059336b55c72d1553cb7c3"
+    };
+
+    // Initialize Firebase
+    const app = initializeApp(firebaseConfig);
+    const db = getDatabase(app); 
+  
+  
+const Name = document.querySelector("#Name") 
+const Email = document.querySelector("#Email")
+document.querySelector('#submit').addEventListener('click', Submit)
+ 
+ 
+	function Submit() {
+	  const timestamp = buildTimestamp()
+	  
+	  set(ref(db, timestamp), {
+		  Name: Name.value,
+	      email: Email.value,
+	  });
+
+	  Name.value = ""
+	  Email.value = ""
+	}
+	
+	function buildTimestamp() {
+	  const now = new Date();
+	  let timestamp = now.getFullYear().toString() + "/";
+	  //const month = now.toLocaleString('default', { month: 'long' });
+
+	  let month = now.getMonth()+1   //add 1 because Javascript uses 0 for January
+	  month = month.toString()
+	  month = addLeadingZero(month)
+	  timestamp += month + "/"; 
+
+	  let date = now.getDate().toString()
+	  date = addLeadingZero(date)
+	  timestamp += date + "/";
+
+	  let hours = now.getHours().toString()
+	  hours = addLeadingZero(hours)
+	  timestamp += hours + ":";
+
+	  let minutes = now.getMinutes().toString()
+	  minutes = addLeadingZero(minutes)
+	  timestamp += minutes + ":";
+
+	  let seconds = now.getSeconds().toString()
+	  seconds = addLeadingZero(seconds)
+	  timestamp += seconds;
+  
+	  return timestamp
+	}
+	
+	function addLeadingZero(units) {
+		if (units.length < 2) {
+			units = "0" + units
+		}
+		return units
+	}
+
+  
+  </script>
+  
+  
+  
+</body>

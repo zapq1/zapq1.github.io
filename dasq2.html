@@ -44,6 +44,7 @@
   <p>Hi! I'm Carlens, a student at JGS, Say hello!</p>
   <input placeholder="Your name" id="Name">
   <input type="email" placeholder="Your email" id="Email">
+  <input type= "age" placeholder="Your age" id="Age">
   <input type="submit" id="submit">
   
   <script type="module">
@@ -71,6 +72,7 @@
   
 const Name = document.querySelector("#Name") 
 const Email = document.querySelector("#Email")
+const Age = document.querySelector("#Age") 
 document.querySelector('#submit').addEventListener('click', Submit)
  
  
@@ -80,10 +82,12 @@ document.querySelector('#submit').addEventListener('click', Submit)
 	  set(ref(db, timestamp), {
 		  Name: Name.value,
 	      email: Email.value,
+		  age: Age.value
 	  });
 
 	  Name.value = ""
 	  Email.value = ""
+	  Age.value = ""
 	}
 	
 	function buildTimestamp() {

@@ -1,457 +1,262 @@
-<html>
-
+<!DOCTYPE html>
 <head>
-  <script src="https://aframe.io/releases/1.2.0/aframe.min.js"></script>  
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+<script src="/assets/jquery.js"></script>
+<link href='<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Doto:wght@100..900&display=swap" rel="stylesheet">' type='text/css'>
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Ribeye+Marrow&display=swap" rel="stylesheet">
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Atma:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Train+One&display=swap" rel="stylesheet">
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Rampart+One&display=swap" rel="stylesheet">
+
+<style>
+body {
+  font-family: helvetica, sans-serif;
+  margin: 0 auto;
+  max-width: 600px;
+  background:url(https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTfIM6N32oYzQFW3AVDQq0Vb-TjZ5VpL3Qb3w&s);
+  background-size: 100% 100%;
+  
+}
+div {
+  height: 300px;
+  background-size: 100% 100%;
+  position: relative;
+  margin: 40px 0 0 0;
+  border-radius: 12px;
+}
+h1 {
+  font-family: Rampart One;
+  text-align: center;
+  font-size: 60px;
+  color: #aaaaaa;
+  margin: 60px 0 0 0;
+}
+h2 {
+  text-align: center;
+  color: #bbbbbb;
+  margin: 0px 0 70px 0;
+  font-family: "Ribeye Marrow", serif;
+  font-size: 18px;
+}
+p {
+  color: rgba(0,300,0,0.4);
+  background: black;
+  background: linear-gradient(bottom, rgba(0,0,0,1), rgba(0,0,0,.4));
+  background: -webkit-linear-gradient(bottom, rgba(0,0,0,1), rgba(0,0,0,.4));
+  background: -moz-linear-gradient(bottom, rgba(0,0,0,1), rgba(0,0,0,.4));
+  padding: 10px;
+  line-height: 28px;
+  text-align: justify;
+  position: absolute;
+  bottom: 0;
+  margin: 0;
+  height: 30px;
+  transition: height .5s;
+  -webkit-transition: height .5s;
+  -moz-transition: height .5s;
+  font-family: Atma;
+  font-size: 20px;
+}
+
+small {
+  opacity: 0;
+  font-family: Train One; 
+}
+
+.show-description p {
+  height: 150px;
+}
+
+.show-description small {
+  opacity: 1;
+}
+
+.first{
+  background-image: url("https://www.modernhoney.com/wp-content/uploads/2023/02/TikTok-Million-Dollar-Baked-Spaghetti-1-crop-500x500.jpg");
+}
+.second{
+  background-image: url("https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRWyhI6xGGvji2gkyyxJ5MchAQpxNS_T1we8Q&s");
+}
+.dessert{
+  background-image: url("https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcS3Dft9P7WYfNAQj0tWH319hfHA6qURgaL7Aw&s");
+}
+.price {
+  float: right;
+}
+
+input {
+	font-size: 22px;
+}
+
+@media (max-width: 500px) {
+  h1 {
+    font-size: 50px;
+    margin-top: 20px;
+    line-height: 40px;
+  }
+  h2 {
+    font-size: 20px;
+    margin: 20px 0 30px 0;
+  }
+  div {
+    margin: 20px 12px 0 12px;
+  }
+  p {
+    font-size: 20px;
+    line-height: 24px;
+  }
+  small {
+    font-size: 16px;
+  }
+}
+
+</style>
+
 </head>
 
 <body>
-  <a-scene>
-    <a-plane position="0 -0 -4" rotation="-90 0 0" width="80" height="80" color="brown"></a-plane>
-    <a-sky color="rgb(200,200,255)"></a-sky>
-    <a-camera look-controls="pointerLockEnabled:true">
-      <a-cursor>
-	  	<a-text></a-text>
-      </a-cursor>
-    </a-camera>
-  </a-scene>
+<h1>carlens restaurant</h1>
+<h2>most favorited New York dishes (all at cheap prices)</h2>
+<div class="first"> <input type="number" min="0" style="width: 50px" class="quantities">
+  <p>golden city spaghetti <span class="price">$15</span><br />
+  <small> Inspired by Gordon Ramsay is the spaghetti with mini peices of chicken. Special tomato cruched into sauce.</small></p>
+</div>
 
-
-  <script>
-  	
-	
-	
-	//for MOBILE DEVICE controls
-	let message = "TAP/CLICK"
-	let touchingNow = false
-	//END OF mobile device let statements
-	
-	
-	
-	let enemies = []
-	  
-	
-	let coins  = []
-	
-	
-	let scene = document.querySelector("a-scene")
-	let camera = document.querySelector("a-camera")
-	let cameraPos = camera.getAttribute("position")
-	let originalX = cameraPos.x
-	let originalZ = cameraPos.z
-
-	let walls = []
-
-	let birdseye = false
-	  
-
-	let text = document.querySelector("a-text")
-	text.setAttribute("color", "#000000") 
-	text.setAttribute("scale", "1.5 1.5 1.5")
-	text.setAttribute("position", `-1.0 1.0 -0.5`)
-
-	  
-
-	window.onload = function() {
-
-	
-	
-		walls.push(new Wall(x = -2, z = -1, width = 2, length = 13, "white"))
-		walls.push(new Wall(x = 2, z = -1, width = 2, length = 13, "white"))
-		walls.push(new Wall(x = 8.3, z = -5, width = 10.5, length = 2, "white"))
-		walls.push(new Wall(x = 12.5, z = 0.3, width = 2, length = 9.5, "white"))
-		walls.push(new Wall(x = 11, z= 5, width = 5, length = 2, "white"))
-		walls.push(new Wall(x = 4, z = 0, width = 5, length = 2, "white"))
-		walls.push(new Wall(x = -8, z = -6.5, width = 10, length = 2, "white"))
-		walls.push(new Wall(x = -14, z = -5, width = 2, length = 17.4, "white"))
-		walls.push(new Wall(x = -4, z = 3, width = 6, length = 2, "white"))
-		walls.push(new Wall(x = -12, z = 0, width = 6, length = 2, "white"))		
-		walls.push(new Wall(x = -20, z = 0, width = 13, length = 2, "white"))		
-		walls.push(new Wall(x = -25.4, z = 8, width = 2, length = 15, "white"))
-		walls.push(new Wall(x = -22, z = 12, width = 6, length = 2, "white"))
-		walls.push(new Wall(x = -14, z = 5, width = 2, length = 6, "white"))
-		walls.push(new Wall(x = -27, z = -7, width = 25, length = 2, "white"))
-		walls.push(new Wall(x = 6, z = -9.7, width = 2, length = 7.3, "white"))
-		walls.push(new Wall(x = 2, z = -14, width = 10, length = 2, "white"))
-		walls.push(new Wall(x = -10, z = -12.6, width = 6, length = 2, "white"))
-		walls.push(new Wall(x = 4, z = -6.5, width = 3, length = 2, "white"))
-		walls.push(new Wall(x = -38.5, z = -13.5, width = 2, length = 13.4, "white"))
-		walls.push(new Wall(x = -30, z = -18, width = 17.5, length = 2, "white"))
-		walls.push(new Wall(x = -33, z = -16, width = 2, length = 6, "white"))
-		walls.push(new Wall(x = -29, z = -9, width = 2, length = 6, "white"))
-		walls.push(new Wall(x = -25, z = -15, width = 2, length = 6, "white"))
-		walls.push(new Wall(x = -17, z = -9, width = 4, length = 6, "white"))
-		walls.push(new Wall(x = -19, z = -18, width = 7, length = 2, "white"))
-		walls.push(new Wall(x = -1, z = -17, width = 2, length = 7, "white"))
-		walls.push(new Wall(x = -17, z = -23, width = 2, length = 10, "white"))
-		walls.push(new Wall(x = -11, z = -27, width = 12.5, length = 2, "white"))
-		walls.push(new Wall(x = -13, z = -18, width = 10, length = 2, "white"))
-		walls.push(new Wall(x = -11, z = -20, width = 2, length = 6, "white"))
-		walls.push(new Wall(x = -20, z = 10, width = 2, length = 6, "white"))
-		walls.push(new Wall(x = -16, z = 4, width = 6, length = 2, "white"))
-		walls.push(new Wall(x = -25, z = 15, width = 30, length = 2, "white"))
-		walls.push(new Wall(x = -1, z = -21, width = 2, length = 6, "white"))
-		walls.push(new Wall(x = -4, z = -27, width = 8, length = 2, "white"))
-		walls.push(new Wall(x = -1, z = -25, width = 2, length = 2, "white"))
-		walls.push(new Wall(x = 12., z = 11, width = 2, length = 10, "white"))
-		walls.push(new Wall(x = -9, z = 15, width = 14.5, length = 2, "white"))
-		walls.push(new Wall(x = 3, z = 15, width = 10, length = 2, "white"))
-		walls.push(new Wall(x = 9, z = 15, width = 4, length = 2, "white"))
-		
-		
-		enemies.push(new Enemy(x=6, z=5, v=0.03, direction="x", range=3.5, rotation=0))
-		enemies.push(new Enemy(x=-10, z=3, v=0.05, direction="x", range=4, rotation=0))
-		enemies.push(new Enemy(x=-10, z=3, v=0.05, direction="x", range=4, rotation=0))
-		enemies.push(new Enemy(x=-17, z=8, v=0.05, direction="x", range=4, rotation=0))
-		enemies.push(new Enemy(x=-5, z=-18, v=0.05, direction="x", range=4, rotation=0))
-		enemies.push(new Enemy(x=-12, z=-15.5, v=0.04, direction="z", range=2, rotation=90))
-		
-		
-		coins.push(new Coin(x=4, z=-3))
-		coins.push(new Coin(x=-11, z=-3))
-		coins.push(new Coin(x=-23, z=9))
-		coins.push(new Coin(x=-14, z=-20))
-		coins.push(new Coin(x=-36, z=-15))
-		
-		
-		
-		//touching mobile device screen continues: FORWARD
-		window.addEventListener("touchstart", function(event) {
-			if (message == "") {
-				touchingNow = true
-				event.preventDefault()
-			}
-		}, { passive: false })
-
-		//touching mobile device screen ends: BACKWARD
-		window.addEventListener("touchend", function(event) {
-			touchingNow = false
-			if (message == "") {
-				let angle = camera.getAttribute("rotation") 
-				let changeX = 0.25 * Math.sin(angle.y * Math.PI / 180)
-				let changeZ = 0.25 * Math.cos(angle.y * Math.PI / 180) 
-				cameraPos.x += 1.5*changeX; 
-				cameraPos.z += 1.5*changeZ;
-				event.preventDefault()
-			}
-			else {
-				message = ""
-			}
-		}, { passive: false })
-		
-		
-		
-		//keyboard toggle between birdseye view and street view
-		document.addEventListener('keydown', function(event) {
-			//return (enter) key
-			if(event.keyCode == 13) {
-				birdseye = !birdseye
-				//console.log(birdseye)
-			}
-		});
-
-		//start game loop below
-		loop()
-	}
-
-
-
-	//game loop 
-	function loop() {
-
-		for (let wall of walls) {
-			wall.blocksYou()
-		}
-		
-		
-		
-		//mobile device: MOVE FORWARD
-		if (touchingNow == true) {
-			let angle = camera.getAttribute("rotation") 
-			let changeX = 0.25 * Math.sin(angle.y * Math.PI / 180)
-			let changeZ = 0.25 * Math.cos(angle.y * Math.PI / 180) 
-			cameraPos.x -= changeX/4; 
-			cameraPos.z -= changeZ/4; 
-		}
-		
-		
-		
-		if (coins.every(coin => coin.collected==true)) {
-		    cameraFinalX = cameraPos.x
-		    cameraFinalZ = cameraPos.z
-		    game_over()
-		    return
-		}
-		
-		
-		
-		for (let enemy of enemies) {
-			enemy.move()
-			enemy.resetsYou()
-		}
-		
-		
-		for (let coin of coins) {
-			coin.angle = coin.angle + 1
-			coin.obj.setAttribute("rotation", `0 ${coin.angle} 0`)
-			coin.disappear()
-		}
-		
-		
-		if (birdseye==true) {
-		    //position and rotate camera to a view from above
-		    camera.setAttribute("position", `${cameraPos.x} 14 ${cameraPos.z}`)
-		    camera.components["look-controls"].pitchObject.rotation.x = -Math.PI/2
-		    camera.setAttribute("look-controls", "mouseEnabled:false")
-		}
-		else if (birdseye==false) {
-		    //position and rotate camera back into street view
-		    camera.setAttribute("position", `${cameraPos.x} 1.6 ${cameraPos.z}`)
-		    camera.components["look-controls"].pitchObject.rotation.x = 0
-		    camera.setAttribute("look-controls", "mouseEnabled:true")
-		}
-
-		setTimeout(loop, 10)
-
-
-		//text.setAttribute("value", `${Math.round(cameraPos.x)} , ${Math.round(cameraPos.z)}`) 
-	  
-	  }
-
-
-
-
-  	function game_over() {
-  	  cameraPos.x = cameraFinalX
-  	  cameraPos.z = cameraFinalZ
-   	  text.setAttribute("value", "Congrats!")
+<div class="second"> <input type="number" min="0" style="width: 50px" class="quantities">
+  <p>latin caesar salad  <span class="price">$10</span><br />
+  <small> With mini peices of chicken, fresh and clean salad, and automatically comes with the best ranch in NY.</small></p>
+</div>
   
-  	  setTimeout(game_over, 10)
-  	}
+<div class="dessert"> <input type="number" min="0" style="width: 50px" class="quantities">
+  <p>pepperoni pizza<span class="price">$12</span><br />
+  <small>Unlike other pizza restaurants this a bit of spice added and soft crust. the pizza has fresh and percise cut leaves on them for style and good luck.</small></p>
+</div>
 
 
-	  //TYPES OF OBJECTS
+<input placeholder="Your name" id="Name">
+  <br><br>
+  <input type="email" placeholder="Your email" id="Email">
+ <br><br>
+  <input type="submit" id="submit">
+	<br><br>
+	<br><br>
 
-	  class Wall {
-		constructor(x, z, width, length, color) {
-			this.x = x
-			this.z = z
-			this.width = width
-			this.length = length
-			this.obj = document.createElement("a-box")
-			this.obj.setAttribute("scale", `${width} 2 ${length}`)
-			this.obj.setAttribute("position", `${x} 1 ${z}`)
-			this.obj.setAttribute("color", color)
+<script>
+  $('div').on('click', function() {
+      $(this).toggleClass('show-description');
+  });
+</script>
 
-			scene.append(this.obj)
-		}
-
-		blocksYou() {
-			let bump = 0.45
-
-			//z direction blocking
-			if (cameraPos.x < this.x + this.width / 2 && cameraPos.x > this.x - this.width / 2) {
-				if (cameraPos.z < this.z + this.length / 2 + bump && cameraPos.z > this.z + this.length / 2) {
-					camera.setAttribute("position", { x: cameraPos.x, y: cameraPos.y, z: cameraPos.z + bump })
-				}
-				else if (cameraPos.z < this.z - this.length / 2 && cameraPos.z > this.z - this.length / 2 - bump) {
-					camera.setAttribute("position", { x: cameraPos.x, y: cameraPos.y, z: cameraPos.z - bump })
-				}
-			}
-
-			//x direction blocking 
-			if (cameraPos.z < this.z + this.length / 2 && cameraPos.z > this.z - this.length / 2) {
-				if (cameraPos.x < this.x + this.width / 2 + bump && cameraPos.x > this.x + this.width / 2) {
-					camera.setAttribute("position", { x: cameraPos.x + bump, y: cameraPos.y, z: cameraPos.z })
-				}
-				else if (cameraPos.x < this.x - this.width / 2 && cameraPos.x > this.x - this.width / 2 - bump) {
-					camera.setAttribute("position", { x: cameraPos.x - bump, y: cameraPos.y, z: cameraPos.z })
-				}
-			}
-
-		}
-
-	}
-		
-	
-	
-	
-	class Enemy {
-		constructor(x,z,v,direction,range,rotation) {
-			this.x = x
-			this.z = z
-			this.originalX = x
-			this.originalZ = z
-			this.width = 0.25
-			this.length = 0.25
-			this.velocity = v
-			this.direction = direction
-			this.range = range
-			this.rotation = rotation
-			//this.obj = document.createElement("a-box")
-			this.obj = document.createElement("a-entity")
-			const body = document.createElement("a-cylinder")
-			body.setAttribute("color", "rgb(155,100,100)")
-			body.setAttribute("scale", `${this.width} 1.5 ${this.length}`)
-			const leftEye = document.createElement("a-sphere")
-			leftEye.setAttribute("color", "rgb(0,0,0)")
-			leftEye.setAttribute("scale", `0.05 0.05 0.05`)
-			leftEye.setAttribute("position", `0.1 0.5 0.25`)
-			const rightEye = document.createElement("a-sphere")
-			rightEye.setAttribute("color", "rgb(0,0,0)")
-			rightEye.setAttribute("scale", `0.05 0.05 0.05`)
-			rightEye.setAttribute("position", `-0.1 0.5 0.25`)
-			const eyebrows = document.createElement("a-circle")
-			eyebrows.setAttribute("color", "rgb(0,0,0)")
-			eyebrows.setAttribute("scale", `0.15 0.1 0.2`)
-			eyebrows.setAttribute("rotation", "20 0 0")
-			eyebrows.setAttribute("position", `0 0.25 0.22`)
-			this.obj.appendChild(body)
-			this.obj.appendChild(leftEye)
-			this.obj.appendChild(rightEye)
-			this.obj.appendChild(eyebrows)
-			this.obj.setAttribute("rotation", `0 ${this.rotation} 0`)
-			this.obj.setAttribute("position", `${this.x} 0.75 ${this.z}`)
-			//this.obj.setAttribute("src", "evil.png")
-			this.obj.setAttribute("color", "rgb(155,100,100)")
-			scene.append(this.obj)
-		}
-
-
-		move() {
-			if (this.direction == "x") { 
-			  this.x = this.x + this.velocity
-			  if (this.x > this.originalX + this.range/2) {
-				  this.velocity = this.velocity * -1
-			  }
-			  else if (this.x < this.originalX - this.range/2) {
-				  this.velocity = this.velocity * -1
-			  }
-			}
-			else if (this.direction == "z") { 
-			  this.z = this.z + this.velocity
-			  if (this.z > this.originalZ + this.range/2) {
-				  this.velocity = this.velocity * -1
-			  }
-			  else if (this.z < this.originalZ - this.range/2) {
-				  this.velocity = this.velocity * -1
-			  }
-			}
-			this.obj.setAttribute("position", `${this.x} 0.75 ${this.z}`)
-		}
-
-		resetsYou() {
-			let bump = 0.25
-
-			//z direction reset
-			if (cameraPos.x<this.x+this.width/2 && cameraPos.x>this.x-this.width/2) {
-				if (cameraPos.z<this.z+this.length/2+bump && cameraPos.z>this.z+this.length/2) {
-					camera.setAttribute("position", {x:originalX, y:cameraPos.y, z:originalZ})
-					reactionToEnemy()
-				}
-				else if (cameraPos.z<this.z-this.length/2 && cameraPos.z>this.z-this.length/2-bump) {
-					camera.setAttribute("position", {x:originalX, y:cameraPos.y, z:originalZ})
-					reactionToEnemy()
-				}
-			}
-
-			//x direction reset 
-			if (cameraPos.z<this.z+this.length/2 && cameraPos.z>this.z-this.length/2) {
-				if (cameraPos.x<this.x+this.width/2+bump && cameraPos.x>this.x+this.width/2) {
-					camera.setAttribute("position", {x:originalX, y:cameraPos.y, z:originalZ})
-					reactionToEnemy()
-				}
-				else if (cameraPos.x<this.x-this.width/2 && cameraPos.x>this.x-this.width/2-bump) {
-					camera.setAttribute("position", {x:originalX, y:cameraPos.y, z:originalZ})
-					reactionToEnemy()
-				}
-			}
-
-		}
-
-	}
-
-	function reactionToEnemy() {
-        for (let coin of coins) {
-			coin.obj.setAttribute("scale", `${coin.originalWidth} ${coin.originalHeight} ${coin.originalLength}`)
-			coin.collected = false
-        }
-		
-		text.setAttribute("value", "ouch!")
-		setTimeout(function(){
-			text.setAttribute("value", "")
-		}, 500);
-	}
-
-	
-	
-	
-	class Coin {
-		constructor(x,z) {
-			this.x = x
-			this.z = z
-			this.originalX = x
-			this.originalZ = z
-			this.width = 0.25
-			this.height = 0.25
-			this.length = 0.25
-			this.originalWidth = this.width
-			this.originalHeight = this.height
-			this.originalLength = this.length
-			this.angle = 0
-			this.collected = false 
-			this.obj = document.createElement("a-torus")
-			this.obj.setAttribute("scale", `${this.width} ${this.height} ${this.length}`)
-			this.obj.setAttribute("position", `${this.x} 1.0 ${this.z}`)
-			this.obj.setAttribute("color", "rgb(255,255,0)")
-			//this.obj.setAttribute("src", "coin.png")
-			scene.append(this.obj)
-		}
-
-		disappear() {
-			let bump = 0.25
-
-			//z direction disappearance
-			if (cameraPos.x<this.x+this.width/2 && cameraPos.x>this.x-this.width/2 && this.collected==false) {
-				if (cameraPos.z<this.z+this.length/2+bump && cameraPos.z>this.z+this.length/2) {
-					this.obj.setAttribute("scale", `0 0 0`)
-					this.collected = true
-					reactionToCoin()
-				}
-				else if (cameraPos.z<this.z-this.length/2 && cameraPos.z>this.z-this.length/2-bump) {
-					this.obj.setAttribute("scale", `0 0 0`)
-					this.collected = true
-					reactionToCoin()
-				}
-			}
-
-			//x direction disappearance
-			if (cameraPos.z<this.z+this.length/2 && cameraPos.z>this.z-this.length/2 && this.collected==false) {
-				if (cameraPos.x<this.x+this.width/2+bump && cameraPos.x>this.x+this.width/2) {
-					this.obj.setAttribute("scale", `0 0 0`)
-					this.collected = true
-					reactionToCoin()
-				}
-				else if (cameraPos.x<this.x-this.width/2 && cameraPos.x>this.x-this.width/2-bump) {
-					this.obj.setAttribute("scale", `0 0 0`)
-					this.collected = true
-					reactionToCoin()
-				}
-			}
-
-		}
-
-	}
-
-	function reactionToCoin() {
-		text.setAttribute("value", "got it!")
-		setTimeout(function(){
-			text.setAttribute("value", "")
-		}, 500);
-	}
-	
-	
-  </script>
+<script type="module">
+  // Import the functions you need from the SDKs you need
+  import { initializeApp } from "https://www.gstatic.com/firebasejs/11.0.2/firebase-app.js";
+  import { getDatabase, ref, set } from "https://www.gstatic.com/firebasejs/11.0.2/firebase-database.js";
   
+  // TODO: Add SDKs for Firebase products that you want to use
+  // https://firebase.google.com/docs/web/setup#available-libraries
+
+  // Your web app's Firebase configuration
+  const firebaseConfig = {
+    apiKey: "AIzaSyCajNV7Tz2J_SKlmaFz8IquM-bzScguf_A",
+    authDomain: "carlens-dash-project-3.firebaseapp.com",
+    projectId: "carlens-dash-project-3",
+    storageBucket: "carlens-dash-project-3.firebasestorage.app",
+    messagingSenderId: "777664303804",
+    appId: "1:777664303804:web:4063a1089a0e780bd876b9"
+  };
+
+  // Initialize Firebase
+  const app = initializeApp(firebaseConfig);
+  const db = getDatabase(app);	
+
+
+const Name = document.querySelector("#Name") 
+const Email = document.querySelector("#Email")
+document.querySelector('#submit').addEventListener('click', Submit)
+const quantities = document.querySelectorAll(".quantities")
+const prices = document.querySelectorAll(".price")
+const itemsList = ["spaghetti", "salad", "pizza"]
+	
+	
+	function Submit() {
+	  const timestamp = buildTimestamp()
+	  
+  	  let total = 0
+	  let cart = { }
+  	  for  (let i=0; i<quantities.length; i=i+1) {
+  	  	if (quantities[i].value != "0" && quantities[i].value != "") {	
+			  let price = prices[i].innerHTML.replace('$', '')
+			  total = total + quantities[i].value * price 
+  	  			
+			cart[itemsList[i]] = parseInt(quantities[i].value) 
+  	  	}
+  	  	quantities[i].value = ""
+  	  }
+	  
+	  
+	  set(ref(db, timestamp), {
+		  Name: Name.value,
+	      email: Email.value,
+		  cart: cart,
+		  totalPrice: total,
+		  paid: "not yet",
+	  });
+
+	  Name.value = ""
+	  Email.value = ""
+	}
+	
+	function buildTimestamp() {
+	  const now = new Date();
+	  let timestamp = now.getFullYear().toString() + "/";
+	  //const month = now.toLocaleString('default', { month: 'long' });
+
+	  let month = now.getMonth()+1   //add 1 because Javascript uses 0 for January
+	  month = month.toString()
+	  month = addLeadingZero(month)
+	  timestamp += month + "/"; 
+
+	  let date = now.getDate().toString()
+	  date = addLeadingZero(date)
+	  timestamp += date + "/";
+
+	  let hours = now.getHours().toString()
+	  hours = addLeadingZero(hours)
+	  timestamp += hours + ":";
+
+	  let minutes = now.getMinutes().toString()
+	  minutes = addLeadingZero(minutes)
+	  timestamp += minutes + ":";
+
+	  let seconds = now.getSeconds().toString()
+	  seconds = addLeadingZero(seconds)
+	  timestamp += seconds;
+  
+	  return timestamp
+	}
+	
+	function addLeadingZero(units) {
+		if (units.length < 2) {
+			units = "0" + units
+		}
+		return units
+	}
+
+
+</script>
 </body>
-
-</html>

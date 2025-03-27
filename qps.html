@@ -95,6 +95,10 @@ small {
 .dessert{
   background-image: url("https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcS3Dft9P7WYfNAQj0tWH319hfHA6qURgaL7Aw&s");
 }
+.macaroni{
+background-image: url("https://thewholecook.com/wp-content/uploads/2021/01/Homemade-Mac-Cheese-by-The-Whole-Cook-horizontal.jpg");	
+}
+
 .price {
   float: right;
 }
@@ -147,6 +151,11 @@ input {
   <small>Unlike other pizza restaurants this a bit of spice added and soft crust. the pizza has fresh and percise cut leaves on them for style and good luck.</small></p>
 </div>
 
+<div class="macaroni"> <input type="number" min="0" style="width: 50px" class="quantities">
+  <p>cheesy macaroni<span class="price">$8</span><br />
+  <small>With melted cheese is the best macaroni in New York. Possibly the best macaroni in the world. Who knows...</small></p>
+</div>
+
 
 <input placeholder="Your name" id="Name">
   <br><br>
@@ -190,7 +199,7 @@ const Email = document.querySelector("#Email")
 document.querySelector('#submit').addEventListener('click', Submit)
 const quantities = document.querySelectorAll(".quantities")
 const prices = document.querySelectorAll(".price")
-const itemsList = ["spaghetti", "salad", "pizza"]
+const itemsList = ["spaghetti", "salad", "pizza", "macaroni"]
 	
 	
 	function Submit() {
